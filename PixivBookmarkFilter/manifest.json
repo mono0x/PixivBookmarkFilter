@@ -1,0 +1,16 @@
+{
+  "name": "PixivBookmarkFilter",
+  "version": "0.0.1",
+  "description": "pixivの検索結果をブックマーク数でフィルタリングする拡張機能です。",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.pixiv.net/tags.php?*",
+        "http://www.pixiv.net/search.php?*"
+      ],
+      "js": [ "content.js" ],
+      "run_at": "document_end"
+    }
+  ],
+  "update_url": "http://monoweb.info/chrome/extension/pixivbookmarkfilter/updates.xml"
+}
