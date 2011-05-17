@@ -46,10 +46,8 @@ var update = function() {
   }
   var images = document.querySelectorAll('ul.images li.image');
   Array.prototype.slice.call(images).forEach(function(image) {
-    var users = 0;
-    if(image.querySelector('.count-list li a').textContent.match(/([0-9]+)/)) {
-      users = parseInt(RegExp.$1, 10);
-    }
+    var countNode = image.querySelector('.count-list .bookmark-count');
+    var users = countNode ? parseInt(countNode.textContent, 10) : 0;
     image.querySelector('a p img').style.visibility =
       (users >= thresholdBox.valueAsNumber) ? 'visible' : 'hidden';
   });
@@ -63,16 +61,9 @@ var timer;
 var nodes = [];
 
 function inserted(e) {
-  nodes.push(e.target);
-  clearTimeout(timer);
-  timer = setTimeout(function() {
-    nodes.forEach(function(node) {
-      if(node.className.indexOf('images') != -1) {
-        update();
-      }
-    });
-    nodes = [];
-  }, 50);
+  if(e.target.className.indexOf('images') != -1) {
+    setTimeout(update, 10);
+  }
 }
 document.addEventListener('DOMNodeInserted', inserted, false);
 
