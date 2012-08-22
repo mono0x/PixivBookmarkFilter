@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Pixiv Bookmark Filter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "pixivの検索結果をブックマーク数でフィルタリングする拡張機能です。",
   "content_scripts": [
     {
