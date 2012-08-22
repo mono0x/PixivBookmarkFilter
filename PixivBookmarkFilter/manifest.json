@@ -12,6 +12,5 @@
       "js": [ "content.js" ],
       "run_at": "document_end"
     }
-  ],
-  "update_url": "http://monoweb.info/chrome/extension/pixivbookmarkfilter/updates.xml"
+  ]
 }
