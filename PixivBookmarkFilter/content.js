@@ -2,32 +2,29 @@
 var container = document.createElement('div');
 container.id = 'pixiv-bookmark-filter';
 container.style.position = 'fixed';
-container.style.left = 0;
+container.style.left = '50%';
 container.style.top = 0;
-container.style.width = '100%';
+container.style.width = '0px';
+container.style.height = '0px';
 container.style.zIndex = 100;
 document.body.appendChild(container);
 
 var box = document.createElement('div');
-box.style.marginLeft = 'auto';
-box.style.marginRight = 'auto';
-box.style.width = '970px';
+box.style.position = 'absolute';
+box.style.left = '-485px';
+box.style.top = '0px';
+box.style.width = '200px';
+box.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+box.style.boxShadow = '0 0 10px black';
+box.style.padding = '10px';
+box.style.borderBottomLeftRadius = box.style.borderBottomRightRadius = '4px';
 
 container.appendChild(box);
-
-var main = document.createElement('div');
-main.style.width = '200px';
-main.style.padding = '10px';
-
-main.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-main.style.boxShadow = '0 0 10px black';
-
-box.appendChild(main);
 
 var thresholdText = document.createElement('p');
 thresholdText.textContent = 'Threshold';
 
-main.appendChild(thresholdText);
+box.appendChild(thresholdText);
 
 var thresholdBox = document.createElement('input');
 thresholdBox.type = 'number';
@@ -37,7 +34,7 @@ thresholdBox.style.display = 'block-inline';
 thresholdBox.style.width = '192px';
 thresholdBox.style.height = '20px';
 
-main.appendChild(thresholdBox);
+box.appendChild(thresholdBox);
 
 var update = function() {
   var threshold = thresholdBox.valueAsNumber;
