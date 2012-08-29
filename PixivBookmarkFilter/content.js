@@ -45,8 +45,9 @@ var update = function() {
   Array.prototype.slice.call(images).forEach(function(image) {
     var countNode = image.querySelector('.count-list .bookmark-count');
     var users = countNode ? parseInt(countNode.textContent, 10) : 0;
-    image.querySelector('a p img').style.visibility =
-      (users >= thresholdBox.valueAsNumber) ? 'visible' : 'hidden';
+    var visibility = users >= thresholdBox.valueAsNumber;
+    image.querySelector('a p img').style.display = visibility ? 'inline' : 'none';
+    image.style.height = visibility ? '250px' : 'auto';
   });
 };
 
